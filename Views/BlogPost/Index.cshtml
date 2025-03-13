@@ -1,0 +1,181 @@
+﻿ @model IEnumerable<bloginterior.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="blog-container">
+    <h1 class="blog-heading">Latest Blog Posts</h1>
+
+    <a href="@Url.Action("create")" class="create-btn">Create New Blog Post</a>
+
+    @foreach (var item in Model)
+    {
+        <div class="blog-post">
+            <div class="blog-content">
+                <h2 class="blog-title">@item.title</h2>
+
+                <div class="blog-actions">
+                    <a href="@Url.Action("details", new { id = item.Id })" class="blog-link">Read More</a>
+
+                    <a href="@Url.Action("Index", "Comment")" class="comment-btn">Comments</a>
+
+
+                    <a href="@Url.Action("edit", new { id = item.Id })" class="blog-link">Edit</a>
+
+                    <a href="@Url.Action("delete", new { id = item.Id })" class="blog-link delete">Delete</a>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(item.imageurl))
+            {
+                <img src="@Url.Content("~/images/" + item.imageurl)" alt="Blog Image" class="blog-image" />
+            }
+        </div>
+    }
+</div>
+    }
+</div>
+
+
+<style>
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FCE4EC; /* Soft Blush Pink */
+        color: #4A4A4A;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Container Styling */
+    .blog-container {
+        width: 85%;
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 20px 0;
+    }
+
+    /* Heading */
+    .blog-heading {
+        font-family: 'Playfair Display', serif;
+        font-size: 38px;
+        font-weight: bold;
+        text-align: center;
+        color: #D81B60; /* Rosy Magenta */
+        margin-bottom: 30px;
+    }
+
+    /* Button Styling */
+    .create-btn {
+        display: inline-block;
+        background: #D81B60; /* Rosy Magenta */
+        color: white;
+        padding: 12px 28px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+        margin-bottom: 20px;
+        box-shadow: 2px 4px 12px rgba(216, 27, 96, 0.3);
+    }
+
+        .create-btn:hover {
+            background: #AD1457; /* Deep Rose */
+            transform: translateY(-3px);
+        }
+
+    /* Blog Post Styling */
+    .blog-post {
+        display: flex;
+        align-items: center;
+        background: #FFF3F3; /* Soft Peachy Pink */
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+        transition: 0.3s ease-in-out;
+        gap: 20px;
+        border: 2px solid #F8BBD0; /* Light Pink Border */
+    }
+
+        .blog-post:hover {
+            transform: scale(1.03);
+        }
+
+    /* Blog Content */
+    .blog-content {
+        flex: 1;
+    }
+
+    /* Blog Title */
+    .blog-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #6A1B9A; /* Plum Purple */
+        margin-bottom: 12px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* Blog Links */
+    .blog-actions {
+        margin-top: 15px;
+    }
+
+    .blog-link {
+        color: #D81B60; /* Rosy Magenta */
+        text-decoration: none;
+        font-weight: bold;
+        margin-right: 15px;
+        transition: 0.3s;
+    }
+
+        .blog-link:hover {
+            color: #AD1457; /* Deep Rose */
+            text-decoration: underline;
+        }
+
+    /* Delete Button */
+    .delete {
+        color: #E53935; /* Warm Red */
+        font-weight: bold;
+    }
+
+        .delete:hover {
+            color: #C62828; /* Deep Warm Red */
+            text-decoration: underline;
+        }
+
+    /* Blog Image */
+    .blog-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 3px 5px 14px rgba(0, 0, 0, 0.1);
+        border: 3px solid #E1BEE7; /* Soft Lavender Border */
+    }
+
+    /* Comment Button */
+    .comment-btn {
+        display: inline-block;
+        background: #9C27B0; /* Orchid Purple */
+        color: white;
+        padding: 10px 18px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        margin-left: 10px;
+        box-shadow: 2px 4px 12px rgba(156, 39, 176, 0.3);
+    }
+
+        .comment-btn:hover {
+            background: #7B1FA2; /* Deep Orchid */
+            transform: translateY(-3px);
+        }
+
+
+</style>

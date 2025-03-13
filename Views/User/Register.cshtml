@@ -1,0 +1,99 @@
+﻿@model bloginterior.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<form method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" required />
+    </div>
+
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" required />
+    </div>
+
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+<a href="@Url.Action("Login", "User")">Already have an account? Login here</a>
+
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FCE4EC; 
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .register-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .register-title {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .register-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .register-label {
+        font-weight: bold;
+        margin-top: 10px;
+        color: #555;
+    }
+
+    .register-input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
+    .register-button {
+        background-color: #E91E63; 
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+        .register-button:hover {
+            background-color: #C2185B; 
+        }
+
+    .login-link {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #E91E63;
+        text-decoration: none;
+    }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+</style>

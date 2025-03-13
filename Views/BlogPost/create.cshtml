@@ -1,0 +1,136 @@
+﻿@model bloginterior.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Create Blog Post";
+}
+
+<div class="blog-create-container">
+    <h2 class="blog-title"> Create a New Blog Post</h2>
+
+    <form method="post" class="blog-form">
+        <label class="form-label">Title:</label>
+        <input type="text" name="title" class="form-input" required />
+
+        <label class="form-label">Content:</label>
+        <textarea name="content" class="form-textarea"></textarea>
+
+        <label class="form-label">Image URL:</label>
+        <input type="text" name="imageurl" class="form-input" />
+
+        <button type="submit" class="submit-btn"> Create Blog</button>
+    </form>
+
+    <a href="@Url.Action("Index")" class="back-btn"> Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FCE4EC; /* Soft Blush Pink */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.blog-create-container {
+    width: 85%;
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* Title */
+.blog-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #3F51B5; /* Royal Blue */
+    margin-bottom: 20px;
+}
+
+/* Form */
+.blog-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Labels */
+.form-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Inputs & Textarea */
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #3F51B5; /* Blue focus effect */
+    outline: none;
+}
+
+.form-textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    display: inline-block;
+    background: #B565A7; /* Rich Mauve */
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    border: none;
+}
+
+.submit-btn:hover {
+    background: #8E4B79; /* Deep Berry */
+}
+
+.back-btn {
+    display: inline-block;
+    background: #D19C67; /* Warm Caramel */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+.back-btn:hover {
+    background: #9C6A42; /* Deep Chocolate */
+}
+
+
+</style>

@@ -1,0 +1,108 @@
+﻿@model bloginterior.Models.User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+
+<form method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" required />
+    </div>
+
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+<a href="@Url.Action("Register", "User")">Don't have an account? Register here</a>
+
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FCE4EC; 
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .login-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .login-title {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .error-message {
+        color: red;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-label {
+        font-weight: bold;
+        margin-top: 10px;
+        color: #555;
+        text-align: left;
+    }
+
+    .login-input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    .login-button {
+        background-color: #E91E63; /* Soft Pink */
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        width: 100%;
+        margin-top: 15px;
+        transition: background-color 0.3s ease;
+    }
+
+        .login-button:hover {
+            background-color: #C2185B; /* Darker pink */
+        }
+
+    .register-link {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #E91E63;
+        text-decoration: none;
+    }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+</style>

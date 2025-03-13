@@ -1,0 +1,142 @@
+﻿@model IEnumerable<bloginterior.Models.Comment>
+
+@{
+    ViewData["Title"] = "Comments";
+}
+
+<h1>Comments Section</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Comment</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.author)</th>
+            <th>@Html.DisplayNameFor(model => model.content)</th>
+            <th>@Html.DisplayNameFor(model => model.createdAt)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => comment.author)</td>
+                <td>@Html.DisplayFor(modelItem => comment.content)</td>
+                <td>@comment.createdAt.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@comment.Id" class="btn btn-info btn-sm">View</a>
+                    <a asp-action="Edit" asp-route-id="@comment.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@comment.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FCE4EC; 
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+  
+
+    .comment-container {
+        width: 90%;
+        max-width: 800px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+        text-align: center;
+    }
+
+    /* Title */
+    .comment-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        font-weight: bold;
+        color: #6A1B9A; /* Deep Mauve */
+        margin-bottom: 20px;
+    }
+
+    /* Add Comment Button */
+    .add-comment-btn {
+        display: inline-block;
+        background: #E91E63; /* Soft Pink */
+        color: white;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+        margin-bottom: 20px;
+        border: none;
+    }
+
+        .add-comment-btn:hover {
+            background: #C2185B; /* Darker Pink */
+            transform: scale(1.05);
+        }
+
+    /* Comment Table */
+    .comment-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+        .comment-table th,
+        .comment-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .comment-table th {
+            background: #AD1457; /* Deep Pink */
+            color: white;
+            font-weight: bold;
+        }
+
+        .comment-table tr:hover {
+            background: #F8BBD0; /* Light Pink */
+        }
+
+    /* Action Links */
+    .view-link {
+        color: #1976D2; /* Deep Blue */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .edit-link {
+        color: #FBC02D; /* Bright Yellow */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .delete-link {
+        color: #D32F2F; /* Vibrant Red */
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        /* Link Hover Effects */
+        .view-link:hover,
+        .edit-link:hover,
+        .delete-link:hover {
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+
+
+
+</style>

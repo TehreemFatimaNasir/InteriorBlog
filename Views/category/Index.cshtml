@@ -1,0 +1,155 @@
+﻿@model IEnumerable<bloginterior.Models.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h1>Categories</h1>
+
+<p>
+    <a asp-action="Create">Add New Category</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => cat.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cat.description)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@cat.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@cat.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FCE4EC; /* Soft Lavender */
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Categories Page Styling */
+    .category-container {
+        width: 90%;
+        max-width: 800px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #4A148C; /* Purple Theme */
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    /* Form Styling */
+    .category-label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+        color: #333;
+    }
+
+    .category-input,
+    .category-textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .category-textarea {
+        resize: none;
+        height: 100px;
+    }
+
+    /* Buttons */
+    /* Add Category Button */
+    .add-category-btn {
+        background: #7B1FA2; /* Deep Purple */
+        color: white;
+    }
+
+        .add-category-btn:hover {
+            background: #4A148C; /* Darker Purple */
+        }
+
+    / /* Back Button */
+    .back-category-btn {
+        background: #009688; /* Elegant Teal */
+        color: white;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .back-category-btn:hover {
+        background: #00796B; /* Deep Teal */
+    }
+    /* Edit Button */
+    .edit-btn {
+        color: white;
+        background: #1976D2; /* Elegant Blue */
+        padding: 6px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background 0.3s ease-in-out;
+    }
+
+        .edit-btn:hover {
+            background: #1565C0;
+        }
+
+    /* Delete Button */
+    .delete-btn {
+        color: white;
+        background: #D32F2F; /* Bold Red */
+        padding: 6px 12px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        transition: background 0.3s ease-in-out;
+    }
+
+        .delete-btn:hover {
+            background: #B71C1C;
+        }
+
+
+
+
+</style>

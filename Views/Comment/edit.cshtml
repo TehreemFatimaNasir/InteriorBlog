@@ -1,0 +1,116 @@
+﻿@model bloginterior.Models.Comment
+
+@{
+    ViewData["Title"] = "Edit Comment";
+}
+
+<div class="comment-container">
+    <h2 class="comment-title"> Edit Comment</h2>
+
+    <form method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+
+        <div class="form-group">
+            <label> Author:</label>
+            <input type="text" name="author" value="@Model.author" required class="input-field" />
+        </div>
+
+        <div class="form-group">
+            <label> Comment:</label>
+            <textarea name="content" required class="textarea-field">@Model.content</textarea>
+        </div>
+
+        <button type="submit" class="submit-btn"> Update</button>
+    </form>
+
+    <a href="@Url.Action("Index")" class="back-btn"> Back to List</a>
+</div>
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FCE4EC; 
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .comment-container {
+        width: 90%;
+        max-width: 500px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .comment-title {
+        font-size: 26px;
+        font-weight: bold;
+        color: #6A1B9A; 
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .input-field, .textarea-field {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #D1C4E9; 
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .textarea-field {
+        height: 100px;
+    }
+
+    .submit-btn {
+        display: inline-block;
+        background: #8E44AD; 
+        color: white;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: 0.3s;
+        border: none;
+        cursor: pointer;
+    }
+
+        .submit-btn:hover {
+            background: #6A1B9A; 
+        }
+
+    /* Back Button */
+    .back-btn {
+        display: inline-block;
+        background: #6A1B9A; 
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: 0.3s;
+        margin-top: 10px;
+    }
+
+        .back-btn:hover {
+            background: #4A148C; 
+        }
+
+</style>

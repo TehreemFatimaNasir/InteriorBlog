@@ -1,0 +1,129 @@
+﻿@model bloginterior.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Edit Blog Post";
+}
+
+<div class="edit-container">
+    <h2 class="edit-title">Edit Blog Post</h2>
+
+    <form method="post" class="edit-form">
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <label>Title:</label>
+        <input type="text" name="title" value="@Model.title" required />
+
+        <label>Content:</label>
+        <textarea name="content">@Model.content</textarea>
+
+        <label>Image URL:</label>
+        <input type="text" name="imageurl" value="@Model.imageurl" />
+
+        <button type="submit" class="edit-btn">Update</button>
+    </form>
+
+    <a href="@Url.Action("index")" class="back-btn">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FCE4EC; /* Soft Blush Pink */
+        color: #4A4A4A;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Edit Blog Styling */
+    .edit-container {
+        width: 90%;
+        max-width: 600px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 8px 22px rgba(216, 27, 96, 0.2);
+        border: 2px solid #F8BBD0; /* Light Pink Border */
+    }
+
+    /* Title */
+    .edit-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        font-weight: bold;
+        color: #D81B60; /* Rosy Magenta */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    /* Form Styling */
+    .edit-form label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        margin: 10px 0 5px;
+        color: #6A1B9A; /* Deep Plum */
+    }
+
+    .edit-form input,
+    .edit-form textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #E1BEE7; /* Soft Lavender Border */
+        border-radius: 8px;
+        background-color: #FFF3F3; /* Soft Peachy Pink */
+    }
+
+    .edit-form textarea {
+        height: 120px;
+        resize: vertical;
+    }
+
+    /* Buttons */
+    .edit-btn {
+        display: block;
+        width: 100%;
+        background: #D81B60; /* Rosy Magenta */
+        color: white;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: 0.3s;
+        border: none;
+        cursor: pointer;
+        margin-top: 15px;
+        box-shadow: 2px 4px 12px rgba(216, 27, 96, 0.3);
+    }
+
+        .edit-btn:hover {
+            background: #AD1457; /* Deep Rose */
+            transform: translateY(-3px);
+        }
+
+    /* Back Button */
+    .back-btn {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 16px;
+        text-decoration: none;
+        color: #9C27B0; /* Orchid Purple */
+        font-weight: bold;
+    }
+
+        .back-btn:hover {
+            color: #7B1FA2; /* Deep Orchid */
+        }
+
+
+</style>

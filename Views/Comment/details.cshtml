@@ -1,0 +1,67 @@
+﻿@model bloginterior.Models.Comment
+
+@{
+    ViewData["Title"] = "Comment Details";
+}
+
+<div class="comment-container">
+    <h2 class="comment-title">Comment Details</h2>
+
+    <div class="comment-details">
+        <p><strong> Author:</strong> @Model.author</p>
+        <p><strong> Comment:</strong> @Model.content</p>
+    </div>
+
+    <a href="@Url.Action("Index")" class="back-btn">Back to List</a>
+</div>
+
+<style>
+    /* Comment Details Page */
+    .comment-container {
+        width: 90%;
+        max-width: 500px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .comment-title {
+        font-size: 26px;
+        font-weight: bold;
+        color: #3F51B5; /* Blue color for details */
+        margin-bottom: 10px;
+    }
+
+    .comment-details {
+        background: #F3E5F5;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+        .comment-details p {
+            margin: 8px 0;
+            font-size: 16px;
+        }
+
+    .back-btn {
+        display: inline-block;
+        background: #3F51B5;
+        color: white;
+        padding: 12px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+        .back-btn:hover {
+            background: #303F9F;
+        }
+
+</style>

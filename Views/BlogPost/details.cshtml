@@ -1,0 +1,99 @@
+﻿@model bloginterior.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Blog Details";
+}
+
+<div class="blog-details-container">
+    <h2 class="blog-title">@Model.title</h2>
+
+    <img src="@Url.Content("~/images/" + Model.imageurl)" alt="Blog Image" class="blog-details-image" />
+
+
+    <p class="blog-date"> Created At: @Model.createdAt.ToString("MMMM dd, yyyy")</p>
+
+    <a href="@Url.Action("Index")" class="back-btn"> Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FCE4EC; 
+        color: #5A4A42; /* Deep Mocha */
+        margin: 0;
+        padding: 0;
+    }
+
+  
+    .blog-details-container {
+        width: 85%;
+        max-width: 800px;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border: 2px solid #E6B0AA; 
+    }
+
+    /* Blog Title */
+    .blog-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        font-weight: bold;
+        color: #B565A7; 
+        margin-bottom: 20px;
+    }
+
+  
+    .blog-details-image {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+
+    .blog-content {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #4A3F35; /* Warm Brown */
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+    /* Blog Date */
+    .blog-date {
+        font-size: 16px;
+        color: #9C7B5D; /* Soft Caramel */
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+
+    .back-btn {
+        display: inline-block;
+        background: #D291BC; 
+        color: white;
+        padding: 12px 22px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: 0.3s ease-in-out;
+        border: 2px solid #B565A7; 
+        box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .back-btn:hover {
+            background: #C785A9; 
+            border-color: #A94D8E; 
+        }
+
+</style>
